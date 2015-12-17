@@ -5,6 +5,9 @@ https://github.com/argilo/sdr-examples
 dvb-t gr lib
 https://github.com/BogdanDIA/gr-dvbt
 
+dvb [t|t2|s|s2] gr lib
+https://githubcom/drmpeg
+
 tutorial
 http://www.irrational.net/2014/03/02/digital-atv/
 
@@ -16,3 +19,6 @@ if modules in gnuradio are missing check:
 /.gnuradio/config.conf:
 	[grc]
 	local_blocks_path=/usr/local/share/gnuradio/grc/blocks/
+
+if rtl-sdr was used as sdr commend lines in 
+/etc/modprobe.d/rtl-sdr-blacklist.conf	
