@@ -1,0 +1,491 @@
+spel@spel-pc:~/Documents/Gnuradio/hackrf-dvb-t$ w_scan -c AT -L
+w_scan version 20130331 (compiled for DVB API 5.10)
+using settings for AUSTRIA
+DVB aerial
+DVB-T Europe
+scan type TERRESTRIAL, channellist 4
+output format vlc xspf playlist
+output charset 'UTF-8'
+Info: using DVB adapter auto detection.
+	/dev/dvb/adapter0/frontend0 -> TERRESTRIAL "Sony CXD2820R": very good :-))
+
+Using TERRESTRIAL frontend (adapter /dev/dvb/adapter0/frontend0)
+-_-_-_-_ Getting frontend capabilities-_-_-_-_ 
+Using DVB API 5.a
+frontend 'Sony CXD2820R' supports
+DVB-T2
+INVERSION_AUTO
+QAM_AUTO
+TRANSMISSION_MODE_AUTO
+GUARD_INTERVAL_AUTO
+HIERARCHY_AUTO
+FEC_AUTO
+FREQ (45.00MHz ... 864.00MHz)
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ 
+Scanning 7MHz frequencies...
+177500: (time: 00:02) 
+184500: (time: 00:08) 
+191500: (time: 00:15) 
+198500: (time: 00:21) 
+205500: (time: 00:28) 
+212500: (time: 00:34) 
+219500: (time: 00:41) 
+226500: (time: 00:47) 
+Scanning 8MHz frequencies...
+474000: (time: 00:55) 
+482000: (time: 01:01) 
+490000: (time: 01:08) (time: 01:11) signal ok:
+	QAM_AUTO f = 490000 kHz I999B8C999D999T999G999Y999
+	updating transponder:
+	   (QAM_AUTO f = 490000 kHz I999B8C999D999T999G999Y999) 0x0000
+	to (QAM_AUTO f = 490000 kHz I999B8C999D999T32G16Y999P1) 0x4004
+498000: (time: 01:27) 
+506000: (time: 01:34) 
+514000: (time: 01:41) (time: 01:42) signal ok:
+	QAM_AUTO f = 514000 kHz I999B8C999D999T999G999Y999
+	new transponder:
+	   (QAM_16   f = 858000 kHz I999B8C34D0T8G4Y0) 0x405A
+522000: (time: 01:55) 
+530000: (time: 02:01) 
+538000: (time: 02:08) 
+546000: (time: 02:20) 
+554000: (time: 02:26) 
+562000: (time: 02:33) 
+570000: (time: 02:39) 
+578000: (time: 02:46) 
+586000: (time: 02:52) 
+594000: (time: 02:59) 
+602000: (time: 03:05) 
+610000: (time: 03:12) 
+618000: (time: 03:18) (time: 03:24) signal ok:
+	QAM_AUTO f = 618000 kHz I999B8C999D999T999G999Y999
+	updating transponder:
+	   (QAM_AUTO f = 618000 kHz I999B8C999D999T999G999Y999) 0x0000
+	to (QAM_AUTO f = 618000 kHz I999B8C999D999T32G16Y999P1) 0x4004
+626000: (time: 03:40) 
+634000: (time: 03:46) 
+642000: (time: 03:54) 
+650000: (time: 04:00) 
+658000: (time: 04:07) 
+666000: (time: 04:13) 
+674000: (time: 04:20) 
+682000: (time: 04:26) (time: 04:35) signal ok:
+	QAM_AUTO f = 682000 kHz I999B8C999D999T999G999Y999
+Info: no data from NIT(actual)
+690000: (time: 04:53) 
+698000: (time: 04:59) 
+706000: (time: 05:06) (time: 05:09) signal ok:
+	QAM_AUTO f = 706000 kHz I999B8C999D999T999G999Y999
+	updating transponder:
+	   (QAM_AUTO f = 706000 kHz I999B8C999D999T999G999Y999) 0x0000
+	to (QAM_AUTO f = 706000 kHz I999B8C999D999T32G16Y999P1) 0x4004
+714000: (time: 05:25) 
+722000: (time: 05:31) 
+730000: (time: 05:38) 
+738000: (time: 05:44) 
+746000: (time: 05:51) 
+754000: (time: 05:57) 
+762000: (time: 06:04) 
+770000: (time: 06:10) 
+778000: (time: 06:18) 
+786000: (time: 06:24) 
+794000: (time: 06:31) 
+802000: (time: 06:37) 
+810000: (time: 06:44) 
+818000: (time: 06:50) 
+826000: (time: 06:57) 
+834000: (time: 07:03) 
+842000: (time: 07:10) 
+850000: (time: 07:16) 
+858000: skipped (already known transponder)
+tune to: QAM_AUTO f = 490000 kHz I999B8C999D999T32G16Y999P1 
+(time: 07:24) 	service = ATV HD (ATV)
+	service = ORF III HD (ORF)
+	service = ORF SPORT+ HD (ORF)
+	service = 3sat HD (ORF)
+	service = ATV II (ATV)
+	service = SRF 1 (SFR)
+	service = Puls4 (sevenonemedia)
+	service = SAT.1 Gold (sevenonemedia)
+tune to: QAM_AUTO f = 514000 kHz I999B8C999D999T999G999Y999 
+(time: 07:40) 	service = ORF1 (ORF)
+	service = ORF2 St (ORF)
+	service = ATV (ATV+)
+	service = ORF2 B (ORF)
+tune to: QAM_16   f = 858000 kHz I999B8C34D0T8G4Y0 
+(time: 07:53) ----------no signal----------
+tune to: QAM_16   f = 858000 kHz I999B8C34D0T8G4Y0  (no signal)
+(time: 07:57) ----------no signal----------
+tune to: QAM_AUTO f = 618000 kHz I999B8C999D999T32G16Y999P1 
+(time: 08:01) 	service = ZDF HD (ORS)
+	service = Das Erste HD (-)
+	service = RTL2 (RTL)
+	service = sixx Austria (-)
+	service = kabel eins austria (-)
+	service = Eurosport (-)
+	service = Playboy TV (-)
+	service = BR (-)
+	service = KiKa (-)
+	service = arte (-)
+	service = zdf neo (-)
+	service = Sport1 (-)
+tune to: QAM_AUTO f = 682000 kHz I999B8C999D999T999G999Y999 
+(time: 08:17) Info: no data from SDT(actual)
+	updating transponder:
+	   (QAM_AUTO f = 682000 kHz I999B8C999D999T999G999Y999) 0x0000
+	to (QAM_AUTO f = 682000 kHz I999B8C999D999T32G16Y999P1) 0x4004
+tune to: QAM_AUTO f = 706000 kHz I999B8C999D999T32G16Y999P1 
+(time: 08:34) 	service = SAT.1 HD Austria (-)
+	service = RTL HD (RTL)
+	service = ProSieben HD Austria (-)
+	service = VOX HD (-)
+	service = PULS 4 HD (-)
+	service = CNN (-)
+	service = Deluxe Music (-)
+	service = Disney Channel (ORS)
+	service = Radio Maria (-)
+	service = Neotion Simpli OTA (ORS)
+dumping lists (42 services)
+<?xml version="1.0" encoding="UTF-8"?>
+	<playlist version="1" xmlns="http://xspf.org/ns/0/" xmlns:vlc="http://www.videolan.org/vlc/playlist/ns/0/">
+		<title>DVB Playlist</title>
+		<trackList>
+			<track>
+				<title>0001. ATV HD</title>
+				<location>dvb-t://frequency=490000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>2</vlc:id>
+					<vlc:option>program=12401</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0002. ORF III HD</title>
+				<location>dvb-t://frequency=490000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>3</vlc:id>
+					<vlc:option>program=12402</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0003. ORF SPORT+ HD</title>
+				<location>dvb-t://frequency=490000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>4</vlc:id>
+					<vlc:option>program=12403</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0004. 3sat HD</title>
+				<location>dvb-t://frequency=490000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>5</vlc:id>
+					<vlc:option>program=12404</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0005. ATV II</title>
+				<location>dvb-t://frequency=490000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>6</vlc:id>
+					<vlc:option>program=12405</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0006. SRF 1</title>
+				<location>dvb-t://frequency=490000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>7</vlc:id>
+					<vlc:option>program=12406</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0007. Puls4</title>
+				<location>dvb-t://frequency=490000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>8</vlc:id>
+					<vlc:option>program=12407</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0008. SAT.1 Gold</title>
+				<location>dvb-t://frequency=490000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>9</vlc:id>
+					<vlc:option>program=12408</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0009. ORF1</title>
+				<location>dvb-t://frequency=514000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=0:guard=0:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>10</vlc:id>
+					<vlc:option>program=10101</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0010. ORF2 St</title>
+				<location>dvb-t://frequency=514000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=0:guard=0:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>11</vlc:id>
+					<vlc:option>program=10112</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0011. ATV</title>
+				<location>dvb-t://frequency=514000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=0:guard=0:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>12</vlc:id>
+					<vlc:option>program=10120</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0012. ORF2 B</title>
+				<location>dvb-t://frequency=514000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=0:guard=0:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>13</vlc:id>
+					<vlc:option>program=10132</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0013. Das Erste HD</title>
+				<location>dvb-t://frequency=618000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>14</vlc:id>
+					<vlc:option>program=12202</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0014. RTL2</title>
+				<location>dvb-t://frequency=618000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>15</vlc:id>
+					<vlc:option>program=12203</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0015. sixx Austria</title>
+				<location>dvb-t://frequency=618000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>16</vlc:id>
+					<vlc:option>program=12204</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0016. kabel eins austria</title>
+				<location>dvb-t://frequency=618000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>17</vlc:id>
+					<vlc:option>program=12205</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0017. Eurosport</title>
+				<location>dvb-t://frequency=618000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>18</vlc:id>
+					<vlc:option>program=12206</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0018. Playboy TV</title>
+				<location>dvb-t://frequency=618000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>19</vlc:id>
+					<vlc:option>program=12207</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0019. BR</title>
+				<location>dvb-t://frequency=618000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>20</vlc:id>
+					<vlc:option>program=12208</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0020. KiKa</title>
+				<location>dvb-t://frequency=618000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>21</vlc:id>
+					<vlc:option>program=12209</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0021. arte</title>
+				<location>dvb-t://frequency=618000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>22</vlc:id>
+					<vlc:option>program=12210</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0022. zdf neo</title>
+				<location>dvb-t://frequency=618000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>23</vlc:id>
+					<vlc:option>program=12211</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0023. Sport1</title>
+				<location>dvb-t://frequency=618000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>24</vlc:id>
+					<vlc:option>program=12212</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0024. service_id 12101</title>
+				<location>dvb-t://frequency=682000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>25</vlc:id>
+					<vlc:option>program=12101</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0025. service_id 12102</title>
+				<location>dvb-t://frequency=682000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>26</vlc:id>
+					<vlc:option>program=12102</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0026. service_id 12103</title>
+				<location>dvb-t://frequency=682000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>27</vlc:id>
+					<vlc:option>program=12103</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0027. service_id 12104</title>
+				<location>dvb-t://frequency=682000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>28</vlc:id>
+					<vlc:option>program=12104</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0028. service_id 12105</title>
+				<location>dvb-t://frequency=682000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>29</vlc:id>
+					<vlc:option>program=12105</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0029. service_id 12106</title>
+				<location>dvb-t://frequency=682000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>30</vlc:id>
+					<vlc:option>program=12106</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0030. service_id 12107</title>
+				<location>dvb-t://frequency=682000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>31</vlc:id>
+					<vlc:option>program=12107</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0031. service_id 12108</title>
+				<location>dvb-t://frequency=682000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>32</vlc:id>
+					<vlc:option>program=12108</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0032. service_id 12109</title>
+				<location>dvb-t://frequency=682000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>33</vlc:id>
+					<vlc:option>program=12109</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0033. service_id 12110</title>
+				<location>dvb-t://frequency=682000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>34</vlc:id>
+					<vlc:option>program=12110</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0034. SAT.1 HD Austria</title>
+				<location>dvb-t://frequency=706000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>35</vlc:id>
+					<vlc:option>program=12301</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0035. RTL HD</title>
+				<location>dvb-t://frequency=706000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>36</vlc:id>
+					<vlc:option>program=12302</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0036. ProSieben HD Austria</title>
+				<location>dvb-t://frequency=706000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>37</vlc:id>
+					<vlc:option>program=12303</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0037. VOX HD</title>
+				<location>dvb-t://frequency=706000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>38</vlc:id>
+					<vlc:option>program=12304</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0038. PULS 4 HD</title>
+				<location>dvb-t://frequency=706000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>39</vlc:id>
+					<vlc:option>program=12305</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0039. CNN</title>
+				<location>dvb-t://frequency=706000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>40</vlc:id>
+					<vlc:option>program=12306</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0040. Deluxe Music</title>
+				<location>dvb-t://frequency=706000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>41</vlc:id>
+					<vlc:option>program=12307</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0041. Disney Channel</title>
+				<location>dvb-t://frequency=706000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>42</vlc:id>
+					<vlc:option>program=12308</vlc:option>
+				</extension>
+			</track>
+			<track>
+				<title>0042. Radio Maria</title>
+				<location>dvb-t://frequency=706000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=32:guard=16:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>43</vlc:id>
+					<vlc:option>program=12310</vlc:option>
+				</extension>
+			</track>
+		</trackList>
+	</playlist>
+Done.
