@@ -8,7 +8,7 @@ https://github.com/BogdanDIA/gr-dvbt
 dvb [t|t2|s|s2] gr lib
 https://github.com/drmpeg
 http://www.w6rz.net/
-
+http://www.etsi.org/deliver/etsi_en/302700_302799/302755/01.03.01_60/en_302755v010301p.pdf
 
 tutorial
 http://www.irrational.net/2014/03/02/digital-atv/
@@ -24,3 +24,7 @@ if modules in gnuradio are missing check:
 
 if rtl-sdr was used as sdr commend lines in 
 /etc/modprobe.d/rtl-sdr-blacklist.conf	
+
+for receiving dvb there must be /etc/dvb/*device*
+channel-scan  e.g. for vlc-playlist
+	w_scan -c AT -L > channels.xspf
