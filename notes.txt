@@ -6,7 +6,9 @@ dvb-t gr lib
 https://github.com/BogdanDIA/gr-dvbt
 
 dvb [t|t2|s|s2] gr lib
-https://githubcom/drmpeg
+https://github.com/drmpeg
+http://www.w6rz.net/
+
 
 tutorial
 http://www.irrational.net/2014/03/02/digital-atv/
