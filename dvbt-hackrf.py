@@ -103,7 +103,7 @@ def main(args):
     out.set_freq_corr(0, 0)
     out.set_gain(rf_gain, 0)
     out.set_if_gain(if_gain, 0)
-    out.set_bb_gain(20, 0)
+    out.set_bb_gain(bb_gain, 0)
     out.set_antenna("", 0)
     out.set_bandwidth(bandwidth, 0)
     log.debug("Output block initialized")
