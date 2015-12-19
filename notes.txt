@@ -9,6 +9,12 @@ dvb [t|t2|s|s2] gr lib
 https://github.com/drmpeg
 http://www.w6rz.net/
 http://www.etsi.org/deliver/etsi_en/302700_302799/302755/01.03.01_60/en_302755v010301p.pdf
+ftp://ftp.kw.bbc.co.uk/t2refs/
+ftp://ftp.kw.bbc.co.uk/t2refs/docs/T2StreamsParameterSets81.xlsx
+http://www.enensys.com/documents/whitePapers/ENENSYS%20Technologies%20-%20POSTER%20-%20Find%20Your%20Way%20in%20DVB-T2.pdf
+
+VV009-4KFFT
+
 
 tutorial
 http://www.irrational.net/2014/03/02/digital-atv/
