@@ -50,6 +50,9 @@ def main(args):
     except Exception, e:
         print "!! Warning: Can't read shared memory maxsize (%s), \n   your maximum might be to low to run this\n" % e
 
+    ## Config Options
+
+    # DVB-T2 Parameters
     version = dvbt2.VERSION_111
     fft_size = dvbt2.FFTSIZE_4K
     input_mode = dvbt2.INPUTMODE_NORMAL
@@ -68,13 +71,17 @@ def main(args):
     papr_mode = dvbt2.PAPR_OFF
     papr_vclip = 3.3
     papr_iterations = 3
-
     channel_mhz = 8
-    samp_rate = channel_mhz * 8000000.0 / 7
+
+    # Hack-RF Parameters
     center_freq = 474000000
     rf_gain = 14
     if_gain = 20
     bb_gain = 20
+
+    ##
+
+    samp_rate = channel_mhz * 8000000.0 / 7
 
     if channel_mhz == 10:
         bandwidth = 10000000
