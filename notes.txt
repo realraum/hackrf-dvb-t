@@ -34,3 +34,13 @@ if rtl-sdr was used as sdr commend lines in
 for receiving dvb there must be /etc/dvb/*device*
 channel-scan  e.g. for vlc-playlist
 	w_scan -c AT -L > channels.xspf
+
+
+to look at
+  http://yo3iiu.ro/blog/?p=1244
+  https://gnuradio.org/redmine/projects/gnuradio/repository/revisions/a1e3f6ce0fb58de8e1ba634d32844cd62c400508/show/gr-dtv/lib/dvbt2
+  https://gnuradio.org/redmine/projects/gnuradio/repository/revisions/master/show/gr-dtv/examples
+  https://nuand.com/forums/viewtopic.php?f=8&t=3676
+  https://nuand.com/forums/viewtopic.php?f=8&t=3499&start=10
+  http://wiki.oz9aec.net/index.php/Simple_DVB_with_Gstreamer_and_GNU_Radio
+  http://wiki.oz9aec.net/index.php/.gnuradiorc
