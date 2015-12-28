@@ -36,16 +36,24 @@ def main(args):
         sys.stderr.write("Usage: dvbt-hackrf.py infile [output_file]\n");
         sys.exit(1)
 
+    ## Config Options
+
+    # DVB-T Parameters
     channel_mhz = 8
     mode = dvbt.T2k
     code_rate = dvbt.C1_2
     constellation = dvbt.QPSK
     guard_interval = dvbt.G1_32
-    symbol_rate = channel_mhz * 8000000.0 / 7
+
+    # Hack-RF Parameters
     center_freq = 490000000
     rf_gain = 14
     if_gain = 20
     bb_gain = 20
+
+    ##
+
+    samp_rate = channel_mhz * 8000000.0 / 7
 
     if mode == dvbt.T2k:
         factor = 1
@@ -98,7 +106,7 @@ def main(args):
     log.debug("DVB-T blocks initialized")
 
     out = osmosdr.sink(args="numchan=1")
-    out.set_sample_rate(symbol_rate)
+    out.set_sample_rate(samp_rate)
     out.set_center_freq(center_freq, 0)
     out.set_freq_corr(0, 0)
     out.set_gain(rf_gain, 0)

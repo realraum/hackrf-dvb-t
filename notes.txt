@@ -28,13 +28,16 @@ if modules in gnuradio are missing check:
 	[grc]
 	local_blocks_path=/usr/local/share/gnuradio/grc/blocks/
 
-if rtl-sdr was used as sdr commend lines in 
-/etc/modprobe.d/rtl-sdr-blacklist.conf	
+if rtl-sdr was used as sdr commend lines in
+/etc/modprobe.d/rtl-sdr-blacklist.conf
 
 for receiving dvb there must be /etc/dvb/*device*
 channel-scan  e.g. for vlc-playlist
 	w_scan -c AT -L > channels.xspf
 
+
+The bitrate of the MPEG-TS stream must be as close to the maximum bitrate for a given
+modulation parameters. Please use dvbt-bitrate.py to calculate the bitrate.
 
 to look at
   http://yo3iiu.ro/blog/?p=1244
