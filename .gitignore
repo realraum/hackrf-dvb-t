@@ -1,4 +1,9 @@
-/in.fifo
 /*.mkv
+/*.mp2
 /*.ts
+/*.pes
 /*.pyc
+/fifos/
+/dvbt2/*.ts
+/opencaster/*.sec
+/opencaster/*.ts
