@@ -41,12 +41,12 @@ def main(args):
     # DVB-T Parameters
     channel_mhz = 8
     mode = dvbt.T2k
-    code_rate = dvbt.C1_2
-    constellation = dvbt.QPSK
-    guard_interval = dvbt.G1_32
+    code_rate = dvbt.C2_3
+    constellation = dvbt.QAM16
+    guard_interval = dvbt.G1_4
 
     # Hack-RF Parameters
-    center_freq = 490000000
+    center_freq = 498000000
     rf_gain = 14
     if_gain = 20
     bb_gain = 20

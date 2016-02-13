@@ -24,9 +24,9 @@ def main(args):
     # DVB-T Parameters
     channel_mhz = 8
     mode = dvbt.T2k
-    code_rate = dvbt.C1_2
-    constellation = dvbt.QPSK
-    guard_interval = dvbt.G1_32
+    code_rate = dvbt.C2_3
+    constellation = dvbt.QAM16
+    guard_interval = dvbt.G1_4
 
     ##
 
