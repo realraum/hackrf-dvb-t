@@ -17,16 +17,18 @@
 
 import sys
 import dvbt
+from dvbtconfig import DVBTConfig
 
 def main(args):
     ## Config Options
+    config = DVBTConfig('dvbt-hackrf.conf')
 
     # DVB-T Parameters
-    channel_mhz = 8
-    mode = dvbt.T2k
-    code_rate = dvbt.C2_3
-    constellation = dvbt.QAM16
-    guard_interval = dvbt.G1_4
+    channel_mhz = config.get_channel_mhz()
+    mode = config.get_mode()
+    code_rate = config.get_code_rate()
+    constellation = config.get_constellation()
+    guard_interval = config.get_guard_interval()
 
     ##
 

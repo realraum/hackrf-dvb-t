@@ -23,6 +23,7 @@ from gnuradio.fft import window
 import dvbt
 import osmosdr
 import sys
+from dvbtconfig import DVBTConfig
 
 def main(args):
     nargs = len(args)
@@ -37,19 +38,20 @@ def main(args):
         sys.exit(1)
 
     ## Config Options
+    config = DVBTConfig('dvbt-hackrf.conf')
 
     # DVB-T Parameters
-    channel_mhz = 8
-    mode = dvbt.T2k
-    code_rate = dvbt.C2_3
-    constellation = dvbt.QAM16
-    guard_interval = dvbt.G1_4
+    channel_mhz = config.get_channel_mhz()
+    mode = config.get_mode()
+    code_rate = config.get_code_rate()
+    constellation = config.get_constellation()
+    guard_interval = config.get_guard_interval()
 
     # Hack-RF Parameters
-    center_freq = 498000000
-    rf_gain = 14
-    if_gain = 20
-    bb_gain = 20
+    center_freq = config.get_center_freq()
+    rf_gain = config.get_rf_gain()
+    if_gain = config.get_if_gain()
+    bb_gain = config.get_bb_gain()
 
     ##
 
