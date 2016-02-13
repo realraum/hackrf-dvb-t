@@ -20,6 +20,15 @@ import dvbt
 from dvbtconfig import DVBTConfig
 
 def main(args):
+    nargs = len(args)
+    if nargs == 0:
+        short = False
+    elif nargs == 1 and args[0] == "--short":
+        short = True
+    else:
+        sys.stderr.write("Usage: dvbt-bitrate.py [ --short ]\n");
+        sys.exit(1)
+
     ## Config Options
     config = DVBTConfig('dvbt-hackrf.conf')
 
@@ -89,7 +98,10 @@ def main(args):
 
     MaxBitrate = 423.0 / 544.0 * TBandwidth * TCodeRate * TConstellation * TGuardInterval
 
-    print "Maximum Bitrate = %d bps (%9.3f kbps, %6.3f Mbps)" % (MaxBitrate, MaxBitrate/1000, MaxBitrate/(1000000))
+    if short:
+        print "%d" % MaxBitrate
+    else:
+        print "Maximum Bitrate = %d bps (%9.3f kbps, %6.3f Mbps)" % (MaxBitrate, MaxBitrate/1000, MaxBitrate/(1000000))
 
 if __name__ == '__main__':
     main(sys.argv[1:])
