@@ -12,12 +12,14 @@ rm -r "$OUT_FIFO"
 mkfifo "$LIVE_FIFO"
 mkfifo "$OUT_FIFO"
 
+BITRATE=`./dvbt-bitrate.py --short`
+
 (
-  ./src.sh "$LIVE_FIFO" 13270588
+  ./src.sh "$LIVE_FIFO" $BITRATE
 ) &
 
 (
-  tsstamp "$LIVE_FIFO" 13270588 > "$OUT_FIFO"
+  tsstamp "$LIVE_FIFO" $BITRATE > "$OUT_FIFO"
 ) &
 
 ./dvbt-hackrf.py "$OUT_FIFO"

@@ -17,16 +17,27 @@
 
 import sys
 import dvbt
+from dvbtconfig import DVBTConfig
 
 def main(args):
+    nargs = len(args)
+    if nargs == 0:
+        short = False
+    elif nargs == 1 and args[0] == "--short":
+        short = True
+    else:
+        sys.stderr.write("Usage: dvbt-bitrate.py [ --short ]\n");
+        sys.exit(1)
+
     ## Config Options
+    config = DVBTConfig('dvbt-hackrf.conf')
 
     # DVB-T Parameters
-    channel_mhz = 8
-    mode = dvbt.T2k
-    code_rate = dvbt.C2_3
-    constellation = dvbt.QAM16
-    guard_interval = dvbt.G1_4
+    channel_mhz = config.get_channel_mhz()
+    mode = config.get_mode()
+    code_rate = config.get_code_rate()
+    constellation = config.get_constellation()
+    guard_interval = config.get_guard_interval()
 
     ##
 
@@ -87,7 +98,10 @@ def main(args):
 
     MaxBitrate = 423.0 / 544.0 * TBandwidth * TCodeRate * TConstellation * TGuardInterval
 
-    print "Maximum Bitrate = %d bps (%9.3f kbps, %6.3f Mbps)" % (MaxBitrate, MaxBitrate/1000, MaxBitrate/(1000000))
+    if short:
+        print "%d" % MaxBitrate
+    else:
+        print "Maximum Bitrate = %d bps (%9.3f kbps, %6.3f Mbps)" % (MaxBitrate, MaxBitrate/1000, MaxBitrate/(1000000))
 
 if __name__ == '__main__':
     main(sys.argv[1:])
