@@ -53,9 +53,8 @@ EIT_RATE=2000
 TDT_RATE=2000
 
 NETTO_RATE=$(($VIDEO_RATE + $AUDIO_RATE + $PAT_RATE + $PMT_RATE + $SDT_RATE + $NIT_RATE + $EIT_RATE + $TDT_RATE))
+NULL_RATE=$(($BRUTTO_RATE - $NETTO_RATE))
 
-#NULL_BITRATE=$(($BRUTTO_BITRATE - $NETTO_BITRATE))
-NULL_RATE=10770084
 
 ./src.sh "$RAW_VIDEO_FIFO" "$RAW_AUDIO_FIFO" &
 #./src.sh "$RAW_VIDEO_FIFO" /dev/null &
@@ -70,11 +69,14 @@ pesvideo2ts 2064 25 112 2300000 0 "$PES_VIDEO_FIFO" > "$TS_VIDEO_FIFO" &
 esaudio2pes "$RAW_AUDIO_FIFO" 1152 48000 384 0 7200 > "$PES_AUDIO_FIFO" &
 pesaudio2ts 2068 1152 48000 384 0 "$PES_AUDIO_FIFO" > "$TS_AUDIO_FIFO" &
 
+
 #tsloop video.ts > "$TS_VIDEO_FIFO" &
 #tsloop audio.ts > "$TS_AUDIO_FIFO" &
 
+
 #tsloop clock-video.ts > "$TS_VIDEO_FIFO" &
 #tsloop clock-audio.ts > "$TS_AUDIO_FIFO" &
+
 
 ## Mux  (tutorial page: 31)
 tscbrmuxer b:$VIDEO_RATE "$TS_VIDEO_FIFO" b:$AUDIO_RATE "$TS_AUDIO_FIFO"                              \
