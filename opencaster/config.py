@@ -115,8 +115,8 @@ sdt = service_description_section(
                 service_descriptor_loop = [
                     service_descriptor(
                         service_type = 1, # digital television service
-                        service_provider_name = "Realraum test 0x1",
-                        service_name = "realraum test",
+                        service_provider_name = "realraum", # no spaces!!
+                        service_name = "realraum TV", # spaces are allowed
                     ),
                 ],
             ),
@@ -164,14 +164,14 @@ eit = event_information_section(
         original_network_id = avalpa_original_transport_stream_id,
         event_loop = [
             event_loop_item(
-                event_id = 1,
-                start_year = 108, # since 1900
-                start_month = 6,
-                start_day = 10,
-                start_hours = 0x00, # use hex like decimals
-                start_minutes = 0x00,
+                event_id = 2,
+                start_year = 116, # since 1900
+                start_month = 02,
+                start_day = 27,
+                start_hours = 0x15,
+                start_minutes = 0x02,
                 start_seconds = 0x00,
-                duration_hours = 0x23,
+                duration_hours = 0x02,
                 duration_minutes = 0x00,
                 duration_seconds = 0x00,
                 running_status = 4, # 4 service is running, 1 not running, 2 starts in a few seconds, 3 pausing
@@ -179,9 +179,9 @@ eit = event_information_section(
                 event_descriptor_loop = [
                     short_event_descriptor (
                         ISO639_language_code = "DEU",
-                        event_name = "epg event name",
-                        text = "this is an epg event text example",
-                    ),
+                        event_name = "realraum now",
+                        text = "des wos jetzt laft",
+                    )
                 ],
             ),
             ],
@@ -199,23 +199,23 @@ eit_follow = event_information_section(
         original_network_id = avalpa_original_transport_stream_id,
         event_loop = [
             event_loop_item(
-                event_id = 2,
-                start_year = 108, # since 1900
-                start_month = 06,
-                start_day = 10,
-                start_hours = 0x23,
-                start_minutes = 0x30,
+                event_id = 3,
+                start_year = 116, # since 1900
+                start_month = 02,
+                start_day = 27,
+                start_hours = 0x17,
+                start_minutes = 0x02,
                 start_seconds = 0x00,
-                duration_hours = 0x12,
+                duration_hours = 0x02,
                 duration_minutes = 0x00,
                 duration_seconds = 0x00,
-                running_status = 4, # 4 service is running, 1 not running, 2 starts in a few seconds, 3 pausing
+                running_status = 1, # 4 service is running, 1 not running, 2 starts in a few seconds, 3 pausing
                 free_CA_mode = 0, # 0 means service is not scrambled, 1 means at least a stream is scrambled
                 event_descriptor_loop = [
                     short_event_descriptor (
                         ISO639_language_code = "DEU",
-                        event_name = "realraum 2",
-                        text = "dreckstext",
+                        event_name = "realraum next",
+                        text = "des wird no kumman",
                     )
                 ],
             ),
@@ -233,10 +233,10 @@ eit_follow = event_information_section(
 
 tdt = time_date_section(
         year = 116, # since 1900
-        month = 1,
-        day = 13,
-        hour = 0x18, # use hex like decimals
-        minute = 0x30,
+        month = 2,
+        day = 27,
+        hour = 0x15, # use hex like decimals
+        minute = 0x20,
         second = 0x21,
         version_number = avalpa1_version,
         section_number = 0,
