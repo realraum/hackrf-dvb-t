@@ -1,0 +1,121 @@
+dvbsnoop V1.4.50 -- http://dvbsnoop.sourceforge.net/ 
+
+------------------------------------------------------------
+SECT-Packet: 00000001   PID: 0 (0x0000), Length: 20 (0x0014)
+Time received: Sat 2016-02-27  16:53:10.158
+------------------------------------------------------------
+PID:  0 (0x0000)  [= assigned for: ISO 13818-1 Program Association Table (PAT)]
+
+Guess table from table id...
+PAT-decoding....
+Table_ID: 0 (0x00)  [= Program Association Table (PAT)]
+section_syntax_indicator: 1 (0x01)
+(fixed): 0 (0x00)
+reserved_1: 3 (0x03)
+Section_length: 17 (0x0011)
+Transport_Stream_ID: 1 (0x0001)
+reserved_2: 3 (0x03)
+Version_number: 1 (0x01)
+current_next_indicator: 1 (0x01)  [= valid now]
+Section_number: 0 (0x00)
+Last_Section_number: 0 (0x00)
+
+    Program_number: 1 (0x0001)
+    reserved: 7 (0x07)
+    Program_map_PID: 1031 (0x0407)
+
+    Program_number: 0 (0x0000)
+    reserved: 7 (0x07)
+    Network_PID: 16 (0x0010)
+
+CRC: 2905126975 (0xad28b83f)
+==========================================================
+
+
+------------------------------------------------------------
+SECT-Packet: 00000001   PID: 16 (0x0010), Length: 43 (0x002b)
+Time received: Sat 2016-02-27  16:53:10.694
+------------------------------------------------------------
+PID:  16 (0x0010)  [= assigned for: DVB Network Information Table (NIT), Stuffing Table (ST)]
+
+Guess table from table id...
+NIT-decoding....
+Table_ID: 64 (0x40)  [= Network Information Table (NIT) - actual network]
+section_syntax_indicator: 1 (0x01)
+reserved_1: 1 (0x01)
+reserved_2: 3 (0x03)
+Section_length: 40 (0x0028)
+Network_ID: 1 (0x0001)  [= Astra Satellite Network 19.2E / Satellite / SES]
+reserved_3: 3 (0x03)
+Version_number: 1 (0x01)
+current_next_indicator: 1 (0x01)  [= valid now]
+Section_number: 0 (0x00)
+Last_Section_number: 0 (0x00)
+reserved_4: 15 (0x0f)
+Network_descriptor_length: 16 (0x0010)
+
+        DVB-DescriptorTag: 64 (0x40)  [= network_name_descriptor]
+        descriptor_length: 14 (0x0e)
+        Network_name: "realraum MUX-A"  -- Charset: Latin alphabet
+
+
+reserved_5: 15 (0x0f)
+Transport_stream_loop_length: 11 (0x000b)
+
+    Transport_stream_ID: 1 (0x0001)
+    Original_network_ID: 1 (0x0001)  [= Astra Satellite Network 19,2°E | Société Européenne des Satellites]
+    reserved_1: 15 (0x0f)
+    Transport_descriptor_length: 5 (0x0005)
+
+            DVB-DescriptorTag: 65 (0x41)  [= service_list_descriptor]
+            descriptor_length: 3 (0x03)
+               service_ID: 1 (0x0001)[ --> refers to PMT program_number]
+               service_type: 1 (0x01)  [= digital television service]
+
+
+CRC: 374516694 (0x1652abd6)
+==========================================================
+
+
+------------------------------------------------------------
+SECT-Packet: 00000001   PID: 1031 (0x0407), Length: 26 (0x001a)
+Time received: Sat 2016-02-27  16:53:11.158
+------------------------------------------------------------
+PID:  1031 (0x0407)
+
+Guess table from table id...
+PMT-decoding....
+Table_ID: 2 (0x02)  [= Program Map Table (PMT)]
+section_syntax_indicator: 1 (0x01)
+(fixed '0'): 0 (0x00)
+reserved_1: 3 (0x03)
+Section_length: 23 (0x0017)
+Program_number: 1 (0x0001)
+reserved_2: 3 (0x03)
+Version_number: 1 (0x01)
+current_next_indicator: 1 (0x01)  [= valid now]
+Section_number: 0 (0x00)
+Last_Section_number: 0 (0x00)
+reserved_3: 7 (0x07)
+PCR PID: 2064 (0x0810)
+reserved_4: 15 (0x0f)
+Program_info_length: 0 (0x0000)
+
+Stream_type loop: 
+
+    Stream_type: 2 (0x02)  [= ITU-T Rec. H.262 | ISO/IEC 13818-2 Video | ISO/IEC 11172-2 constr. parameter video stream]
+    reserved_1: 7 (0x07)
+    Elementary_PID: 2064 (0x0810)
+    reserved_2: 15 (0x0f)
+    ES_info_length: 0 (0x0000)
+
+
+    Stream_type: 3 (0x03)  [= ISO/IEC 11172 Audio]
+    reserved_1: 7 (0x07)
+    Elementary_PID: 2068 (0x0814)
+    reserved_2: 15 (0x0f)
+    ES_info_length: 0 (0x0000)
+
+CRC: 4056021212 (0xf1c1f8dc)
+==========================================================
+
