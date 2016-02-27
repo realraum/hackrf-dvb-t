@@ -43,7 +43,7 @@ mkfifo "$STAMP_FIFO"
 
 BRUTTO_RATE=`./dvbt-bitrate.py --short`
 
-VIDEO_RATE=2300000
+VIDEO_RATE=4200000
 AUDIO_RATE=188000
 PAT_RATE=3008
 PMT_RATE=3008
@@ -62,7 +62,7 @@ NULL_RATE=$(($BRUTTO_RATE - $NETTO_RATE))
 
 ## Video (tutorial page: 69)
 esvideompeg2pes "$RAW_VIDEO_FIFO" > "$PES_VIDEO_FIFO" &
-pesvideo2ts 2064 25 112 2300000 0 "$PES_VIDEO_FIFO" > "$TS_VIDEO_FIFO" &
+pesvideo2ts 2064 25 112 $VIDEO_RATE 0 "$PES_VIDEO_FIFO" > "$TS_VIDEO_FIFO" &
 
 ## Audio  (tutorial page: 70)
 #esaudio2pes "$RAW_AUDIO_FIFO" 1152 48000 384 0 > "$PES_AUDIO_FIFO" &

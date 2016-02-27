@@ -8,10 +8,6 @@ if [ -z $VFIFO ] || [ -z $AFIFO ]; then
   exit 1
 fi
 
-#exec ffmpeg -i rtp://89.106.211.60:5000 \
-#     -vcodec mpeg2video -s 720x576 -r 25 -flags cgop+ilme -sc_threshold 1000000000 -g 25 -bf 2 -b:v 1900k -minrate 1900k -maxrate 1900k -bufsize 1400k -f mp2 -map 0:0 pipe:3 \
-#     -acodec mp2 -ac 2 -b:a 128k -f mp2 -map 0:1 pipe:4   3> "$VFIFO" 4> "$AFIFO"
-
 exec ffmpeg -i rtp://89.106.211.60:5000 \
-     -vcodec mpeg2video -s 720x576 -r 25 -g 25 -bf 2 -b:v 1900k -minrate 1900k -maxrate 1900k -bufsize 1400k -f mp2 -map 0:0 pipe:3 \
+     -vcodec mpeg2video -s 720x576 -r 25 -g 25 -bf 2 -b:v 3550k -minrate 3550k -maxrate 3550k -bufsize 2000k -f mp2 -map 0:0 pipe:3 \
      -acodec mp2 -ac 2 -b:a 128k -f mp2 -map 0:1 pipe:4   3> "$VFIFO" 4> "$AFIFO"
