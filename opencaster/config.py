@@ -7,12 +7,12 @@
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 2 of the License, or
 # (at your option) any later version.
-#                                  
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-#                                  
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
@@ -48,26 +48,26 @@ avalpa1_version = 1
 
 
 nit = network_information_section(
-	network_id = 1,
+        network_id = 1,
         network_descriptor_loop = [
-	    network_descriptor(network_name = "realraum 1",), 
+            network_descriptor(network_name = "realraum MUX-A",),
             ],
-	transport_stream_loop = [
-	    transport_stream_loop_item(
-		transport_stream_id = avalpa_transport_stream_id,
-		original_network_id = avalpa_original_transport_stream_id,
-		transport_descriptor_loop = [
-		    service_list_descriptor(
-			dvb_service_descriptor_loop = [
-			    service_descriptor_loop_item(
-				service_ID = avalpa1_service_id, 
-				service_type = 1, # digital tv service type; 0x19 hd ditigal tv
-			    ),
-			],
-		    ),
-		],		
-	     ),
-	  ],
+        transport_stream_loop = [
+            transport_stream_loop_item(
+                transport_stream_id = avalpa_transport_stream_id,
+                original_network_id = avalpa_original_transport_stream_id,
+                transport_descriptor_loop = [
+                    service_list_descriptor(
+                        dvb_service_descriptor_loop = [
+                            service_descriptor_loop_item(
+                                service_ID = avalpa1_service_id,
+                                service_type = 1, # digital tv service type; 0x19 hd ditigal tv
+                            ),
+                        ],
+                    ),
+                ],
+             ),
+          ],
         version_number = avalpa1_version, # you need to change the table number every time you edit, so the decoder will compare its version with the new one and update the table
         section_number = 0,
         last_section_number = 0,
@@ -79,16 +79,16 @@ nit = network_information_section(
 #
 
 pat = program_association_section(
-	transport_stream_id = avalpa_transport_stream_id,
+        transport_stream_id = avalpa_transport_stream_id,
         program_loop = [
-    	    program_loop_item(
-	        program_number = avalpa1_service_id,
-    		PID = avalpa1_pmt_pid,
-    	    ),  
-    	    program_loop_item(
-	        program_number = 0, # special program for the NIT
-    		PID = 16,
-    	    ), 
+            program_loop_item(
+                program_number = avalpa1_service_id,
+                PID = avalpa1_pmt_pid,
+            ),
+            program_loop_item(
+                program_number = 0, # special program for the NIT
+                PID = 16,
+            ),
         ],
         version_number = avalpa1_version, # you need to change the table number every time you edit, so the decoder will compare its version with the new one and update the table
         section_number = 0,
@@ -98,28 +98,28 @@ pat = program_association_section(
 
 
 #
-# Service Description Table (ETSI EN 300 468 5.2.3) 
+# Service Description Table (ETSI EN 300 468 5.2.3)
 # this is a basic SDT with the minimum desciptors, OpenCaster has a big library ready to use
 #
 
 sdt = service_description_section(
-	transport_stream_id = avalpa_transport_stream_id,
-	original_network_id = avalpa_original_transport_stream_id,
+        transport_stream_id = avalpa_transport_stream_id,
+        original_network_id = avalpa_original_transport_stream_id,
         service_loop = [
-	    service_loop_item(
-		service_ID = avalpa1_service_id,
-		EIT_schedule_flag = 0, # 0 no current even information is broadcasted, 1 broadcasted
-		EIT_present_following_flag = 0, # 0 no next event information is broadcasted, 1 is broadcasted
-		running_status = 4, # 4 service is running, 1 not running, 2 starts in a few seconds, 3 pausing
-		free_CA_mode = 0, # 0 means service is not scrambled, 1 means at least a stream is scrambled
-		service_descriptor_loop = [
-		    service_descriptor(
-			service_type = 1, # digital television service
-			service_provider_name = "Realraum test 0x1",
-			service_name = "realraum test",
-		    ),    
-		],
-	    ),	
+            service_loop_item(
+                service_ID = avalpa1_service_id,
+                EIT_schedule_flag = 0, # 0 no current even information is broadcasted, 1 broadcasted
+                EIT_present_following_flag = 0, # 0 no next event information is broadcasted, 1 is broadcasted
+                running_status = 4, # 4 service is running, 1 not running, 2 starts in a few seconds, 3 pausing
+                free_CA_mode = 0, # 0 means service is not scrambled, 1 means at least a stream is scrambled
+                service_descriptor_loop = [
+                    service_descriptor(
+                        service_type = 1, # digital television service
+                        service_provider_name = "Realraum test 0x1",
+                        service_name = "realraum test",
+                    ),
+                ],
+            ),
         ],
         version_number = avalpa1_version, # you need to change the table number every time you edit, so the decoder will compare its version with the new one and update the table
         section_number = 0,
@@ -130,60 +130,60 @@ sdt = service_description_section(
 #
 # Program Map Table (ISO/IEC 13818-1 2.4.4.8)
 # this is a basic PMT the the minimum desciptors, OpenCaster has a big library ready to use
-#	
+#
 
 pmt = program_map_section(
-	program_number = avalpa1_service_id,
-	PCR_PID = 2064,
-	program_info_descriptor_loop = [],
-	stream_loop = [
-		stream_loop_item(
-			stream_type = 2, # mpeg2 video stream type; h264 0x18 hd avc; see page 76 usermanual
-			elementary_PID = 2064, 
-			element_info_descriptor_loop = []
-		),
-		stream_loop_item(
-			stream_type = 4, # mpeg2 audio stream type; for 624 see page 76 usermanual
-			elementary_PID = 2068,
-			element_info_descriptor_loop = []
-		),
-	],
+        program_number = avalpa1_service_id,
+        PCR_PID = 2064,
+        program_info_descriptor_loop = [],
+        stream_loop = [
+                stream_loop_item(
+                        stream_type = 2, # mpeg2 video stream type; h264 0x18 hd avc; see page 76 usermanual
+                        elementary_PID = 2064,
+                        element_info_descriptor_loop = []
+                ),
+                stream_loop_item(
+                        stream_type = 3, # mpeg2 audio stream type; for 624 see page 76 usermanual
+                        elementary_PID = 2068,
+                        element_info_descriptor_loop = []
+                ),
+        ],
         version_number = avalpa1_version, # you need to change the table number every time you edit, so the decoder will compare its version with the new one and update the table
         section_number = 0,
         last_section_number = 0,
-        )    
+        )
 
 #
-# Event Information Table (ETSI EN 300 468 5.2.4) 
+# Event Information Table (ETSI EN 300 468 5.2.4)
 #
 
 eit = event_information_section(
-	table_id = EIT_ACTUAL_TS_PRESENT_FOLLOWING,
-	service_id = avalpa1_service_id,
-	transport_stream_id = avalpa_transport_stream_id,
-	original_network_id = avalpa_original_transport_stream_id,
+        table_id = EIT_ACTUAL_TS_PRESENT_FOLLOWING,
+        service_id = avalpa1_service_id,
+        transport_stream_id = avalpa_transport_stream_id,
+        original_network_id = avalpa_original_transport_stream_id,
         event_loop = [
-	    event_loop_item(
-		event_id = 1,
-		start_year = 108, # since 1900
-		start_month = 6, 
-		start_day = 10, 
-		start_hours = 0x00, # use hex like decimals
-		start_minutes = 0x00,
-		start_seconds = 0x00,
-		duration_hours = 0x23,
-		duration_minutes = 0x00,
-		duration_seconds = 0x00,
-		running_status = 4, # 4 service is running, 1 not running, 2 starts in a few seconds, 3 pausing
-		free_CA_mode = 0, # 0 means service is not scrambled, 1 means at least a stream is scrambled
-		event_descriptor_loop = [
-		    short_event_descriptor (
-			ISO639_language_code = "DEU", 
-			event_name = "epg event name",
-			text = "this is an epg event text example",
-		    ),
-		],
-	    ),	    	
+            event_loop_item(
+                event_id = 1,
+                start_year = 108, # since 1900
+                start_month = 6,
+                start_day = 10,
+                start_hours = 0x00, # use hex like decimals
+                start_minutes = 0x00,
+                start_seconds = 0x00,
+                duration_hours = 0x23,
+                duration_minutes = 0x00,
+                duration_seconds = 0x00,
+                running_status = 4, # 4 service is running, 1 not running, 2 starts in a few seconds, 3 pausing
+                free_CA_mode = 0, # 0 means service is not scrambled, 1 means at least a stream is scrambled
+                event_descriptor_loop = [
+                    short_event_descriptor (
+                        ISO639_language_code = "DEU",
+                        event_name = "epg event name",
+                        text = "this is an epg event text example",
+                    ),
+                ],
+            ),
             ],
         segment_last_section_number = 1,
         version_number = avalpa1_version,
@@ -193,51 +193,51 @@ eit = event_information_section(
 
 
 eit_follow = event_information_section(
-	table_id = EIT_ACTUAL_TS_PRESENT_FOLLOWING,
-	service_id = avalpa1_service_id,
-	transport_stream_id = avalpa_transport_stream_id,
-	original_network_id = avalpa_original_transport_stream_id,
+        table_id = EIT_ACTUAL_TS_PRESENT_FOLLOWING,
+        service_id = avalpa1_service_id,
+        transport_stream_id = avalpa_transport_stream_id,
+        original_network_id = avalpa_original_transport_stream_id,
         event_loop = [
-	    event_loop_item(
-		event_id = 2, 
-		start_year = 108, # since 1900
-		start_month = 06, 
-		start_day = 10,
-		start_hours = 0x23,
-		start_minutes = 0x30,
-		start_seconds = 0x00, 
-		duration_hours = 0x12, 
-		duration_minutes = 0x00,
-		duration_seconds = 0x00, 
-		running_status = 4, # 4 service is running, 1 not running, 2 starts in a few seconds, 3 pausing
-		free_CA_mode = 0, # 0 means service is not scrambled, 1 means at least a stream is scrambled
-		event_descriptor_loop = [
-		    short_event_descriptor (
-			ISO639_language_code = "DEU", 
-			event_name = "realraum 2",
-			text = "dreckstext", 
-		    )    
-		],
-	    ),
+            event_loop_item(
+                event_id = 2,
+                start_year = 108, # since 1900
+                start_month = 06,
+                start_day = 10,
+                start_hours = 0x23,
+                start_minutes = 0x30,
+                start_seconds = 0x00,
+                duration_hours = 0x12,
+                duration_minutes = 0x00,
+                duration_seconds = 0x00,
+                running_status = 4, # 4 service is running, 1 not running, 2 starts in a few seconds, 3 pausing
+                free_CA_mode = 0, # 0 means service is not scrambled, 1 means at least a stream is scrambled
+                event_descriptor_loop = [
+                    short_event_descriptor (
+                        ISO639_language_code = "DEU",
+                        event_name = "realraum 2",
+                        text = "dreckstext",
+                    )
+                ],
+            ),
             ],
         segment_last_section_number = 1,
-        version_number = avalpa1_version, 
+        version_number = avalpa1_version,
         section_number = 1, # this is the second section
-        last_section_number = 1, 
+        last_section_number = 1,
         )
 
 #
-# Time Description Table (ETSI EN 300 468 5.2.5) 
+# Time Description Table (ETSI EN 300 468 5.2.5)
 # it should be replaced at run time with tstdt
 #
 
 tdt = time_date_section(
-	year = 116, # since 1900
-	month = 1,
-	day = 13,
-	hour = 0x18, # use hex like decimals
-	minute = 0x30,
-	second = 0x21,
+        year = 116, # since 1900
+        month = 1,
+        day = 13,
+        hour = 0x18, # use hex like decimals
+        minute = 0x30,
+        second = 0x21,
         version_number = avalpa1_version,
         section_number = 0,
         last_section_number = 0,
