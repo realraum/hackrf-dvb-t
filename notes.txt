@@ -38,6 +38,7 @@ channel-scan  e.g. for vlc-playlist
 
 The bitrate of the MPEG-TS stream must be as close to the maximum bitrate for a given
 modulation parameters. Please use dvbt-bitrate.py to calculate the bitrate.
+see http://www.saschateichmann.de/dvb-t-hf.html
 
 opencaster
   https://github.com/aventuri/opencaster.git
@@ -59,3 +60,4 @@ to look at
   http://wiki.oz9aec.net/index.php/.gnuradiorc
 
   http://www.avalpa.com/assets/freesoft/opencaster/AvalpaBroadcastServerUserManual-v3.0.pdf
+  https://www.researchgate.net/publication/257645300_Generating_a_transport_stream_for_digital_terrestrial_television_system_in_conformance_with_ISDB-Tb_standard
