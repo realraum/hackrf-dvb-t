@@ -66,12 +66,9 @@ esvideompeg2pes "$RAW_VIDEO_FIFO" > "$PES_VIDEO_FIFO" &
 pesvideo2ts 2064 25 112 2300000 0 "$PES_VIDEO_FIFO" > "$TS_VIDEO_FIFO" &
 
 ## Audio  (tutorial page: 70)
-#esaudio2pes "$RAW_AUDIO_FIFO" 1152 48000 384 -1 3600 > "$PES_AUDIO_FIFO" &
-esaudio2pes "$RAW_AUDIO_FIFO" 1152 48000 384 0 > "$PES_AUDIO_FIFO" &
+#esaudio2pes "$RAW_AUDIO_FIFO" 1152 48000 384 0 > "$PES_AUDIO_FIFO" &
+esaudio2pes "$RAW_AUDIO_FIFO" 1152 48000 384 0 7200 > "$PES_AUDIO_FIFO" &
 pesaudio2ts 2068 1152 48000 384 0 "$PES_AUDIO_FIFO" > "$TS_AUDIO_FIFO" &
-
-#tsloop opencaster/firstvideo.ts > "$TS_VIDEO_FIFO" &
-#tsloop opencaster/firstaudio.ts > "$TS_AUDIO_FIFO" &
 
 #tsloop video.ts > "$TS_VIDEO_FIFO" &
 #tsloop audio.ts > "$TS_AUDIO_FIFO" &
@@ -80,18 +77,15 @@ pesaudio2ts 2068 1152 48000 384 0 "$PES_AUDIO_FIFO" > "$TS_AUDIO_FIFO" &
 #tsloop clock-audio.ts > "$TS_AUDIO_FIFO" &
 
 ## Mux  (tutorial page: 31)
-tscbrmuxer b:$VIDEO_RATE "$TS_VIDEO_FIFO" b:$AUDIO_RATE "$TS_AUDIO_FIFO"                             \
+tscbrmuxer b:$VIDEO_RATE "$TS_VIDEO_FIFO" b:$AUDIO_RATE "$TS_AUDIO_FIFO"                              \
             b:$PAT_RATE opencaster/pat.ts b:$PMT_RATE opencaster/pmt.ts b:$SDT_RATE opencaster/sdt.ts \
             b:$NIT_RATE opencaster/nit.ts b:$EIT_RATE opencaster/eit.ts b:$TDT_RATE opencaster/tdt.ts \
             b:$NULL_RATE opencaster/null.ts > "$MUXED_FIFO" &
-
-# while true; do sleep 1; done
 
 tstdt "$MUXED_FIFO" > "$TDT_FIFO" &
 tsstamp "$TDT_FIFO" $BRUTTO_RATE > "$STAMP_FIFO" &
 
 #cat "$STAMP_FIFO" > all.ts
-
 ./dvbt-hackrf.py "$STAMP_FIFO"
 
 exit 0
