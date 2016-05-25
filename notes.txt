@@ -49,6 +49,8 @@ opencaster
   EIT event information table
   TDT time date table
 
+USB DVB-T transmitter:
+  http://www.hides.com.tw/product_opencaster_eng.html
 
 to look at
   http://yo3iiu.ro/blog/?p=1244
