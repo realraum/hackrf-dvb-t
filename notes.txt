@@ -61,3 +61,14 @@ to look at
 
   http://www.avalpa.com/assets/freesoft/opencaster/AvalpaBroadcastServerUserManual-v3.0.pdf
   https://www.researchgate.net/publication/257645300_Generating_a_transport_stream_for_digital_terrestrial_television_system_in_conformance_with_ISDB-Tb_standard
+
+
+
+HF-Analyse
+
+  501818-494186=7632
+  501808-494165=7643
+  501797-494167=7630
+  ORS ~ 8000khz
+
+  todo genaue analyse mit träger & co
