@@ -87,8 +87,8 @@ tstdt "$MUXED_FIFO" > "$TDT_FIFO" &
 tsstamp "$TDT_FIFO" $BRUTTO_RATE > "$STAMP_FIFO" &
 
 #cat "$STAMP_FIFO" > all.ts
-./dvbt-hackrf.py "$STAMP_FIFO"
-#./dvbt-tsrfsend.py "$STAMP_FIFO"
+#./dvbt-hackrf.py "$STAMP_FIFO"
+./dvbt-tsrfsend.py "$STAMP_FIFO"
 
 
 exit 0

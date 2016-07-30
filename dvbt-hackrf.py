@@ -19,6 +19,7 @@ from gnuradio import blocks
 from gnuradio import digital
 from gnuradio import fft
 from gnuradio import gr
+from gnuradio import filter
 from gnuradio.fft import window
 import dvbt
 import osmosdr
@@ -55,7 +56,7 @@ def main(args):
 
     ##
 
-    samp_rate = channel_mhz * 8000000.0 / 7
+    samp_rate = 10000000.0
 
     if mode == dvbt.T2k:
         factor = 1
@@ -104,7 +105,8 @@ def main(args):
     dvbt_reference_signals = dvbt.reference_signals(gr.sizeof_gr_complex, (1512 * factor), carriers, constellation, dvbt.NH, code_rate, code_rate, dvbt.G1_32, mode, 0, 0)
     fft_vxx = fft.fft_vcc(carriers, False, (window.rectangular(carriers)), True, 10)
     digital_ofdm_cyclic_prefixer = digital.ofdm_cyclic_prefixer(carriers, carriers+(gi), 0, "")
-    blocks_multiply_const_vxx = blocks.multiply_const_vcc((0.0022097087 * 2.5, ))
+    rational_resampler_xxx = filter.rational_resampler_ccc(interpolation=70, decimation=64, taps=None, fractional_bw=None)
+    blocks_multiply_const_vxx = blocks.multiply_const_vcc((0.0022097087, ))
     log.debug("DVB-T blocks initialized")
 
     out = osmosdr.sink(args="numchan=1")
@@ -115,7 +117,7 @@ def main(args):
     out.set_if_gain(if_gain, 0)
     out.set_bb_gain(bb_gain, 0)
     out.set_antenna("", 0)
-    out.set_bandwidth(bandwidth, 0)
+    out.set_bandwidth(0, 0)
     log.debug("Output block initialized")
 
     tb.connect(src, dvbt_energy_dispersal)
@@ -129,7 +131,8 @@ def main(args):
     tb.connect(dvbt_reference_signals, fft_vxx)
     tb.connect(fft_vxx, digital_ofdm_cyclic_prefixer)
     tb.connect(digital_ofdm_cyclic_prefixer, blocks_multiply_const_vxx)
-    tb.connect(blocks_multiply_const_vxx, out)
+    tb.connect(blocks_multiply_const_vxx, rational_resampler_xxx)
+    tb.connect(rational_resampler_xxx, out)
     log.debug("all blocks connected")
 
     if outfile:
