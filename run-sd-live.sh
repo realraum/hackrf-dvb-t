@@ -41,7 +41,7 @@ mkfifo "$MUXED_FIFO"
 mkfifo "$TDT_FIFO"
 mkfifo "$STAMP_FIFO"
 
-BRUTTO_RATE=`./dvbt-bitrate.py --short`
+BRUTTO_RATE="4976470" #  `./dvbt-bitrate.py --short`
 
 VIDEO_RATE=4200000
 AUDIO_RATE=188000
@@ -56,17 +56,18 @@ NETTO_RATE=$(($VIDEO_RATE + $AUDIO_RATE + $PAT_RATE + $PMT_RATE + $SDT_RATE + $N
 NULL_RATE=$(($BRUTTO_RATE - $NETTO_RATE))
 
 
-./src.sh "$RAW_VIDEO_FIFO" "$RAW_AUDIO_FIFO" &
-#./src.sh "$RAW_VIDEO_FIFO" /dev/null &
-#./src.sh  /dev/null "$RAW_AUDIO_FIFO" &
+./src-decklink.sh "$RAW_VIDEO_FIFO" "$RAW_AUDIO_FIFO" &
+#./src-rtp.sh "$RAW_VIDEO_FIFO" "$RAW_AUDIO_FIFO" &
+#./src-rtp.sh "$RAW_VIDEO_FIFO" /dev/null &
+#./src-rtp.sh  /dev/null "$RAW_AUDIO_FIFO" &
 
 ## Video (tutorial page: 69)
 esvideompeg2pes "$RAW_VIDEO_FIFO" > "$PES_VIDEO_FIFO" &
 pesvideo2ts 2064 25 112 $VIDEO_RATE 0 "$PES_VIDEO_FIFO" > "$TS_VIDEO_FIFO" &
 
 ## Audio  (tutorial page: 70)
-#esaudio2pes "$RAW_AUDIO_FIFO" 1152 48000 384 0 > "$PES_AUDIO_FIFO" &
-esaudio2pes "$RAW_AUDIO_FIFO" 1152 48000 384 0 7200 > "$PES_AUDIO_FIFO" &
+esaudio2pes "$RAW_AUDIO_FIFO" 1152 48000 384 0 > "$PES_AUDIO_FIFO" &
+#esaudio2pes "$RAW_AUDIO_FIFO" 1152 48000 384 0 7200 > "$PES_AUDIO_FIFO" &
 pesaudio2ts 2068 1152 48000 384 0 "$PES_AUDIO_FIFO" > "$TS_AUDIO_FIFO" &
 
 
@@ -88,6 +89,8 @@ tstdt "$MUXED_FIFO" > "$TDT_FIFO" &
 tsstamp "$TDT_FIFO" $BRUTTO_RATE > "$STAMP_FIFO" &
 
 #cat "$STAMP_FIFO" > all.ts
-./dvbt-hackrf.py "$STAMP_FIFO"
+#./dvbt-hackrf.py "$STAMP_FIFO"
+../tsrfsend-nosvn/tsrfsend "$STAMP_FIFO" 0 498000 8000 4 1/2 1/4 2 0 3
+
 
 exit 0
