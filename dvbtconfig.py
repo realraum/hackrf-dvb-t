@@ -27,11 +27,18 @@ class DVBTConfig:
     dflt_constellation = dvbt.QPSK
     dflt_guard_interval = dvbt.G1_32
 
-    # Hack-RF Parameters
+    # Channel Parameters
     dflt_center_freq = 498000000
-    dflt_rf_gain = 14
-    dflt_if_gain = 20
-    dflt_bb_gain = 20
+
+    # Hack-RF Parameters
+    dflt_hackrf_rf_gain = 14
+    dflt_hackrf_if_gain = 20
+    dflt_hackrf_bb_gain = 20
+
+    # tsrfsend Parameters
+    dflt_tsrfsend_gain = 0
+    dflt_tsrfsend_cell_id = 0
+
 
     def __init__(self, configfile):
         self.config.readfp(open(configfile))
@@ -115,7 +122,7 @@ class DVBTConfig:
 
     def get_center_freq(self):
         try:
-            f = self.config.getint('hackrf', 'frequency')
+            f = self.config.getint('channel', 'frequency')
             if f < 474000000 or f > 858000000:
                 raise ValueError("center frequency is out of allowed range: %d" % f)
             return f
@@ -124,26 +131,42 @@ class DVBTConfig:
         except ConfigParser.NoOptionError:
             return self.dflt_center_freq
 
-    def get_rf_gain(self):
+    def get_hackrf_rf_gain(self):
         try:
             return self.config.getint('hackrf', 'rf-gain')
         except ConfigParser.NoSectionError:
-            return self.dflt_rf_gain
+            return self.dflt_hackrf_rf_gain
         except ConfigParser.NoOptionError:
-            return self.dflt_rf_gain
+            return self.dflt_hackrf_rf_gain
 
-    def get_if_gain(self):
+    def get_hackrf_if_gain(self):
         try:
             return self.config.getint('hackrf', 'if-gain')
         except ConfigParser.NoSectionError:
-            return self.dflt_if_gain
+            return self.dflt_hackrf_if_gain
         except ConfigParser.NoOptionError:
-            return self.dflt_if_gain
+            return self.dflt_hackrf_if_gain
 
-    def get_bb_gain(self):
+    def get_hackrf_bb_gain(self):
         try:
             return self.config.getint('hackrf', 'bb-gain')
         except ConfigParser.NoSectionError:
-            return self.dflt_bb_gain
+            return self.dflt_hackrf_bb_gain
         except ConfigParser.NoOptionError:
-            return self.dflt_bb_gain
+            return self.dflt_hackrf_bb_gain
+
+    def get_tsrfsend_cell_id(self):
+        try:
+            return self.config.getint('tsrfsend', 'cell-id')
+        except ConfigParser.NoSectionError:
+            return self.dflt_tsrfsend_cell_id
+        except ConfigParser.NoOptionError:
+            return self.dflt_tsrfsend_cell_id
+
+    def get_tsrfsend_gain(self):
+        try:
+            return self.config.getint('tsrfsend', 'gain')
+        except ConfigParser.NoSectionError:
+            return self.dflt_tsrfsend_gain
+        except ConfigParser.NoOptionError:
+            return self.dflt_tsrfsend_gain

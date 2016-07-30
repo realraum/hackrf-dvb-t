@@ -41,7 +41,7 @@ mkfifo "$MUXED_FIFO"
 mkfifo "$TDT_FIFO"
 mkfifo "$STAMP_FIFO"
 
-BRUTTO_RATE="4976470" #  `./dvbt-bitrate.py --short`
+BRUTTO_RATE=`./dvbt-bitrate.py --short`
 
 VIDEO_RATE=4200000
 AUDIO_RATE=188000
@@ -67,13 +67,11 @@ pesvideo2ts 2064 25 112 $VIDEO_RATE 0 "$PES_VIDEO_FIFO" > "$TS_VIDEO_FIFO" &
 
 ## Audio  (tutorial page: 70)
 esaudio2pes "$RAW_AUDIO_FIFO" 1152 48000 384 0 > "$PES_AUDIO_FIFO" &
-#esaudio2pes "$RAW_AUDIO_FIFO" 1152 48000 384 0 7200 > "$PES_AUDIO_FIFO" &
 pesaudio2ts 2068 1152 48000 384 0 "$PES_AUDIO_FIFO" > "$TS_AUDIO_FIFO" &
 
 
 #tsloop video.ts > "$TS_VIDEO_FIFO" &
 #tsloop audio.ts > "$TS_AUDIO_FIFO" &
-
 
 #tsloop clock-video.ts > "$TS_VIDEO_FIFO" &
 #tsloop clock-audio.ts > "$TS_AUDIO_FIFO" &
@@ -89,8 +87,8 @@ tstdt "$MUXED_FIFO" > "$TDT_FIFO" &
 tsstamp "$TDT_FIFO" $BRUTTO_RATE > "$STAMP_FIFO" &
 
 #cat "$STAMP_FIFO" > all.ts
-#./dvbt-hackrf.py "$STAMP_FIFO"
-../tsrfsend-nosvn/tsrfsend "$STAMP_FIFO" 0 498000 8000 4 1/2 1/4 2 0 3
+./dvbt-hackrf.py "$STAMP_FIFO"
+#./dvbt-tsrfsend.py "$STAMP_FIFO"
 
 
 exit 0

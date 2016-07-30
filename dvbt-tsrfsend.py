@@ -15,19 +15,24 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import os
 import sys
 import dvbt
 from dvbtconfig import DVBTConfig
 
 def main(args):
     nargs = len(args)
-    if nargs == 0:
-        short = False
-    elif nargs == 1 and args[0] == "--short":
-        short = True
+    if nargs == 1:
+        infile  = args[0]
+        device = '0'
+    elif nargs == 2:
+        infile   = args[0]
+        device  = args[1]
     else:
-        sys.stderr.write("Usage: dvbt-bitrate.py [ --short ]\n");
+        sys.stderr.write("Usage: dvbt-hackrf.py infile [device-index (default=0)]\n");
         sys.exit(1)
+
+    gainDBm = '3'
 
     ## Config Options
     config = DVBTConfig('dvbt.conf')
@@ -38,6 +43,12 @@ def main(args):
     code_rate = config.get_code_rate()
     constellation = config.get_constellation()
     guard_interval = config.get_guard_interval()
+
+    # HF Parameters
+    center_freq = '%d' % (config.get_center_freq()/1000)
+    gain = '%d' % config.get_tsrfsend_gain()
+    cell_id = '%d' % config.get_tsrfsend_cell_id()
+
 
     ##
 
@@ -57,51 +68,53 @@ def main(args):
     #                  =             423 / 544             * TBandwidth * TCodeRate * TConstellation * TGuardInterval (bps)
     #
 
-    TBandwidth = channel_mhz * 1000000
+    argBW = '%d' % (channel_mhz * 1000)
 
-    TCodeRate = 0.0
+    argCR = '1/2'
     if code_rate == dvbt.C1_2:
-        TCodeRate = 1.0/2.0
+        argCR = '1/2'
     elif code_rate == dvbt.C2_3:
-        TCodeRate = 2.0/3.0
+        argCR = '2/3'
     elif code_rate == dvbt.C3_4:
-        TCodeRate = 3.0/4.0
+        argCR = '3/4'
     elif code_rate == dvbt.C5_6:
-        TCodeRate = 5.0/6.0
+        argCR = '5/6'
     elif code_rate == dvbt.C7_8:
-        TCodeRate = 7.0/8.0
+        argCR = '7/8'
     else:
         raise ValueError("invalid cod_rate")
 
-    TConstellation = 0
+    argCO = '4'
     if constellation == dvbt.QPSK:
-        TConstellation = 2
+        argCO = '4'
     elif constellation == dvbt.QAM16:
-        TConstellation = 4
+        argCO = '16'
     elif constellation == dvbt.QAM64:
-        TConstellation = 6
+        argCO = '64'
     else:
         raise ValueError("invalid constellation")
 
-    TGuardInterval = 0.0
+    argGI = '1/4'
     if guard_interval == dvbt.G1_32:
-        TGuardInterval = 32.0/33.0
+        argGI = '1/32'
     elif guard_interval == dvbt.G1_16:
-        TGuardInterval = 16.0/17.0
+        argGI = '1/16'
     elif guard_interval == dvbt.G1_8:
-        TGuardInterval = 8.0/9.0
+        argGI = '1/8'
     elif guard_interval == dvbt.G1_4:
-        TGuardInterval = 4.0/5.0
+        argGI = '1/4'
     else:
         raise ValueError("invalid guard_interval")
 
-
-    MaxBitrate = 423.0 / 544.0 * TBandwidth * TCodeRate * TConstellation * TGuardInterval
-
-    if short:
-        print "%d" % MaxBitrate
+    argMO = '2'
+    if mode == dvbt.T2k:
+        argMO = '2'
+    elif mode == dvbt.T8k:
+        argMO = '8'
     else:
-        print "Maximum Bitrate = %d bps (%9.3f kbps, %6.3f Mbps)" % (MaxBitrate, MaxBitrate/1000, MaxBitrate/(1000000))
+        raise ValueError("invalid guard_interval")
+
+    os.execl('./tsrfsend', 'tsrfsend', infile, device, center_freq, argBW, argCO, argCR, argGI, argMO, cell_id, gain)
 
 if __name__ == '__main__':
     main(sys.argv[1:])

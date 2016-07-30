@@ -38,7 +38,7 @@ def main(args):
         sys.exit(1)
 
     ## Config Options
-    config = DVBTConfig('dvbt-hackrf.conf')
+    config = DVBTConfig('dvbt.conf')
 
     # DVB-T Parameters
     channel_mhz = config.get_channel_mhz()
@@ -49,9 +49,9 @@ def main(args):
 
     # Hack-RF Parameters
     center_freq = config.get_center_freq()
-    rf_gain = config.get_rf_gain()
-    if_gain = config.get_if_gain()
-    bb_gain = config.get_bb_gain()
+    rf_gain = config.get_hackrf_rf_gain()
+    if_gain = config.get_hackrf_if_gain()
+    bb_gain = config.get_hackrf_bb_gain()
 
     ##
 
