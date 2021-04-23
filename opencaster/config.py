@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 
 #
 # Copyright (C) 2008  Lorenzo Pallara, l.pallara@avalpa.com
@@ -201,7 +201,7 @@ eit_follow = event_information_section(
             event_loop_item(
                 event_id = 3,
                 start_year = 116, # since 1900
-                start_month = 02,
+                start_month = 0o2,
                 start_day = 27,
                 start_hours = 0x17,
                 start_minutes = 0x02,

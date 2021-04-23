@@ -1,3 +1,4 @@
+#! /usr/bin/env python3
 #
 #  Copyright (C) 2016 Christian Pointner <equinox@spreadspace.org>
 #
@@ -15,10 +16,10 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import dvbt
-import ConfigParser
+import configparser
 
 class DVBTConfig:
-    config = ConfigParser.RawConfigParser()
+    config = configparser.RawConfigParser()
 
     # DVB-T Parameters
     dflt_channel_mhz = 6
@@ -49,9 +50,9 @@ class DVBTConfig:
             if c < 5 or c > 8:
                 raise ValueError("illegal value for bandwith: %d" % c)
             return c
-        except ConfigParser.NoSectionError:
+        except configparser.NoSectionError:
             return self.dflt_channel_mhz
-        except ConfigParser.NoOptionError:
+        except configparser.NoOptionError:
             return self.dflt_channel_mhz
 
 
@@ -63,9 +64,9 @@ class DVBTConfig:
             if m.upper() == "8K":
                 return dvbt.T8k
             raise ValueError("illegal value for mode: %s" % m)
-        except ConfigParser.NoSectionError:
+        except configparser.NoSectionError:
             return self.dflt_mode
-        except ConfigParser.NoOptionError:
+        except configparser.NoOptionError:
             return self.dflt_mode
 
     def get_code_rate(self):
@@ -82,9 +83,9 @@ class DVBTConfig:
             if c == "7/8":
                 return dvbt.C7_8
             raise ValueError("illegal value for code_rate: %s" % c)
-        except ConfigParser.NoSectionError:
+        except configparser.NoSectionError:
             return self.dflt_code_rate
-        except ConfigParser.NoOptionError:
+        except configparser.NoOptionError:
             return self.dflt_code_rate
 
     def get_constellation(self):
@@ -97,9 +98,9 @@ class DVBTConfig:
             if c.upper() == "QAM64":
                 return dvbt.QAM64
             raise ValueError("illegal value for constellation: %s" % c)
-        except ConfigParser.NoSectionError:
+        except configparser.NoSectionError:
             return self.dflt_constellation
-        except ConfigParser.NoOptionError:
+        except configparser.NoOptionError:
             return self.dflt_constellation
 
     def get_guard_interval(self):
@@ -114,9 +115,9 @@ class DVBTConfig:
             if g == "1/4":
                 return dvbt.G1_4
             raise ValueError("illegal value for guard_interval: %s" % g)
-        except ConfigParser.NoSectionError:
+        except configparser.NoSectionError:
             return self.dflt_guard_interval
-        except ConfigParser.NoOptionError:
+        except configparser.NoOptionError:
             return self.dflt_guard_interval
 
 
@@ -126,47 +127,47 @@ class DVBTConfig:
             if f < 474000000 or f > 858000000:
                 raise ValueError("center frequency is out of allowed range: %d" % f)
             return f
-        except ConfigParser.NoSectionError:
+        except configparser.NoSectionError:
             return self.dflt_center_freq
-        except ConfigParser.NoOptionError:
+        except configparser.NoOptionError:
             return self.dflt_center_freq
 
     def get_hackrf_rf_gain(self):
         try:
             return self.config.getint('hackrf', 'rf-gain')
-        except ConfigParser.NoSectionError:
+        except configparser.NoSectionError:
             return self.dflt_hackrf_rf_gain
-        except ConfigParser.NoOptionError:
+        except configparser.NoOptionError:
             return self.dflt_hackrf_rf_gain
 
     def get_hackrf_if_gain(self):
         try:
             return self.config.getint('hackrf', 'if-gain')
-        except ConfigParser.NoSectionError:
+        except configparser.NoSectionError:
             return self.dflt_hackrf_if_gain
-        except ConfigParser.NoOptionError:
+        except configparser.NoOptionError:
             return self.dflt_hackrf_if_gain
 
     def get_hackrf_bb_gain(self):
         try:
             return self.config.getint('hackrf', 'bb-gain')
-        except ConfigParser.NoSectionError:
+        except configparser.NoSectionError:
             return self.dflt_hackrf_bb_gain
-        except ConfigParser.NoOptionError:
+        except configparser.NoOptionError:
             return self.dflt_hackrf_bb_gain
 
     def get_tsrfsend_cell_id(self):
         try:
             return self.config.getint('tsrfsend', 'cell-id')
-        except ConfigParser.NoSectionError:
+        except configparser.NoSectionError:
             return self.dflt_tsrfsend_cell_id
-        except ConfigParser.NoOptionError:
+        except configparser.NoOptionError:
             return self.dflt_tsrfsend_cell_id
 
     def get_tsrfsend_gain(self):
         try:
             return self.config.getint('tsrfsend', 'gain')
-        except ConfigParser.NoSectionError:
+        except configparser.NoSectionError:
             return self.dflt_tsrfsend_gain
-        except ConfigParser.NoOptionError:
+        except configparser.NoOptionError:
             return self.dflt_tsrfsend_gain

@@ -1,4 +1,4 @@
-#!/usr/bin/env /usr/bin/python
+#! /usr/bin/env python3
 
 # Copyright 2014 Ron Economos (w6rz@comcast.net)
 #

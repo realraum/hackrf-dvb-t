@@ -1,0 +1,164 @@
+$ 2to3-2.7 -w *.py
+RefactoringTool: Skipping optional fixer: buffer
+RefactoringTool: Skipping optional fixer: idioms
+RefactoringTool: Skipping optional fixer: set_literal
+RefactoringTool: Skipping optional fixer: ws_comma
+RefactoringTool: Refactored dvbt-bitrate.py
+--- dvbt-bitrate.py	(original)
++++ dvbt-bitrate.py	(refactored)
+@@ -99,9 +99,9 @@
+     MaxBitrate = 423.0 / 544.0 * TBandwidth * TCodeRate * TConstellation * TGuardInterval
+ 
+     if short:
+-        print "%d" % MaxBitrate
++        print("%d" % MaxBitrate)
+     else:
+-        print "Maximum Bitrate = %d bps (%9.3f kbps, %6.3f Mbps)" % (MaxBitrate, MaxBitrate/1000, MaxBitrate/(1000000))
++        print("Maximum Bitrate = %d bps (%9.3f kbps, %6.3f Mbps)" % (MaxBitrate, MaxBitrate/1000, MaxBitrate/(1000000)))
+ 
+ if __name__ == '__main__':
+     main(sys.argv[1:])
+RefactoringTool: Refactored dvbtconfig.py
+--- dvbtconfig.py	(original)
++++ dvbtconfig.py	(refactored)
+@@ -15,10 +15,10 @@
+ # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
+ import dvbt
+-import ConfigParser
++import configparser
+ 
+ class DVBTConfig:
+-    config = ConfigParser.RawConfigParser()
++    config = configparser.RawConfigParser()
+ 
+     # DVB-T Parameters
+     dflt_channel_mhz = 6
+@@ -49,9 +49,9 @@
+             if c < 5 or c > 8:
+                 raise ValueError("illegal value for bandwith: %d" % c)
+             return c
+-        except ConfigParser.NoSectionError:
++        except configparser.NoSectionError:
+             return self.dflt_channel_mhz
+-        except ConfigParser.NoOptionError:
++        except configparser.NoOptionError:
+             return self.dflt_channel_mhz
+ 
+ 
+@@ -63,9 +63,9 @@
+             if m.upper() == "8K":
+                 return dvbt.T8k
+             raise ValueError("illegal value for mode: %s" % m)
+-        except ConfigParser.NoSectionError:
++        except configparser.NoSectionError:
+             return self.dflt_mode
+-        except ConfigParser.NoOptionError:
++        except configparser.NoOptionError:
+             return self.dflt_mode
+ 
+     def get_code_rate(self):
+@@ -82,9 +82,9 @@
+             if c == "7/8":
+                 return dvbt.C7_8
+             raise ValueError("illegal value for code_rate: %s" % c)
+-        except ConfigParser.NoSectionError:
++        except configparser.NoSectionError:
+             return self.dflt_code_rate
+-        except ConfigParser.NoOptionError:
++        except configparser.NoOptionError:
+             return self.dflt_code_rate
+ 
+     def get_constellation(self):
+@@ -97,9 +97,9 @@
+             if c.upper() == "QAM64":
+                 return dvbt.QAM64
+             raise ValueError("illegal value for constellation: %s" % c)
+-        except ConfigParser.NoSectionError:
++        except configparser.NoSectionError:
+             return self.dflt_constellation
+-        except ConfigParser.NoOptionError:
++        except configparser.NoOptionError:
+             return self.dflt_constellation
+ 
+     def get_guard_interval(self):
+@@ -114,9 +114,9 @@
+             if g == "1/4":
+                 return dvbt.G1_4
+             raise ValueError("illegal value for guard_interval: %s" % g)
+-        except ConfigParser.NoSectionError:
++        except configparser.NoSectionError:
+             return self.dflt_guard_interval
+-        except ConfigParser.NoOptionError:
++        except configparser.NoOptionError:
+             return self.dflt_guard_interval
+ 
+ 
+@@ -126,47 +126,47 @@
+             if f < 474000000 or f > 858000000:
+                 raise ValueError("center frequency is out of allowed range: %d" % f)
+             return f
+-        except ConfigParser.NoSectionError:
++        except configparser.NoSectionError:
+             return self.dflt_center_freq
+-        except ConfigParser.NoOptionError:
++        except configparser.NoOptionError:
+             return self.dflt_center_freq
+ 
+     def get_hackrf_rf_gain(self):
+         try:
+             return self.config.getint('hackrf', 'rf-gain')
+-        except ConfigParser.NoSectionError:
++        except configparser.NoSectionError:
+             return self.dflt_hackrf_rf_gain
+-        except ConfigParser.NoOptionError:
++        except configparser.NoOptionError:
+             return self.dflt_hackrf_rf_gain
+ 
+     def get_hackrf_if_gain(self):
+         try:
+             return self.config.getint('hackrf', 'if-gain')
+-        except ConfigParser.NoSectionError:
++        except configparser.NoSectionError:
+             return self.dflt_hackrf_if_gain
+-        except ConfigParser.NoOptionError:
++        except configparser.NoOptionError:
+             return self.dflt_hackrf_if_gain
+ 
+     def get_hackrf_bb_gain(self):
+         try:
+             return self.config.getint('hackrf', 'bb-gain')
+-        except ConfigParser.NoSectionError:
++        except configparser.NoSectionError:
+             return self.dflt_hackrf_bb_gain
+-        except ConfigParser.NoOptionError:
++        except configparser.NoOptionError:
+             return self.dflt_hackrf_bb_gain
+ 
+     def get_tsrfsend_cell_id(self):
+         try:
+             return self.config.getint('tsrfsend', 'cell-id')
+-        except ConfigParser.NoSectionError:
++        except configparser.NoSectionError:
+             return self.dflt_tsrfsend_cell_id
+-        except ConfigParser.NoOptionError:
++        except configparser.NoOptionError:
+             return self.dflt_tsrfsend_cell_id
+ 
+     def get_tsrfsend_gain(self):
+         try:
+             return self.config.getint('tsrfsend', 'gain')
+-        except ConfigParser.NoSectionError:
++        except configparser.NoSectionError:
+             return self.dflt_tsrfsend_gain
+-        except ConfigParser.NoOptionError:
++        except configparser.NoOptionError:
+             return self.dflt_tsrfsend_gain
+RefactoringTool: No changes to dvbt-hackrf.py
+RefactoringTool: No changes to dvbt-tsrfsend.py
+RefactoringTool: Files that were modified:
+RefactoringTool: dvbt-bitrate.py
+RefactoringTool: dvbtconfig.py
+RefactoringTool: dvbt-hackrf.py
+RefactoringTool: dvbt-tsrfsend.py
+
