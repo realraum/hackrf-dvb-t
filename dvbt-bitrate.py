@@ -1,4 +1,4 @@
-#!/usr/bin/env /usr/bin/python
+#! /usr/bin/env python3
 
 # Copyright 2015 Christian Pointner <equinox@spreadspace.org>
 #
@@ -99,9 +99,9 @@ def main(args):
     MaxBitrate = 423.0 / 544.0 * TBandwidth * TCodeRate * TConstellation * TGuardInterval
 
     if short:
-        print "%d" % MaxBitrate
+        print("%d" % MaxBitrate)
     else:
-        print "Maximum Bitrate = %d bps (%9.3f kbps, %6.3f Mbps)" % (MaxBitrate, MaxBitrate/1000, MaxBitrate/(1000000))
+        print("Maximum Bitrate = %d bps (%9.3f kbps, %6.3f Mbps)" % (MaxBitrate, MaxBitrate/1000, MaxBitrate/(1000000)))
 
 if __name__ == '__main__':
     main(sys.argv[1:])

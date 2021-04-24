@@ -1,4 +1,4 @@
-#!/usr/bin/env /usr/bin/python
+#! /usr/bin/env python3
 
 # Copyright 2015 Ron Economos (w6rz@comcast.net)
 #
@@ -38,17 +38,17 @@ def main(args):
         shmaxfile = open('/proc/sys/kernel/shmmax', 'r')
         shmax = int(shmaxfile.readline())
         if shmax < 1024*1024*1024:
-            print ""
-            print "In order to run this, the maximum size of shared memory must be > %d" % (1024*1024*1024)
-            print "your current maximum is at %d" % (shmax)
-            print "please run the following command to fix this:"
-            print ""
-            print " # sudo sh -c 'echo $(( 1024 * 1024 * 1024 )) > /proc/sys/kernel/shmmax'"
-            print ""
+            print("")
+            print("In order to run this, the maximum size of shared memory must be > %d" % (1024*1024*1024))
+            print("your current maximum is at %d" % (shmax))
+            print("please run the following command to fix this:")
+            print("")
+            print(" # sudo sh -c 'echo $(( 1024 * 1024 * 1024 )) > /proc/sys/kernel/shmmax'")
+            print("")
             sys.exit(1)
 
-    except Exception, e:
-        print "!! Warning: Can't read shared memory maxsize (%s), \n   your maximum might be to low to run this\n" % e
+    except Exception as e:
+        print("!! Warning: Can't read shared memory maxsize (%s), \n   your maximum might be to low to run this\n" % e)
 
     ## Config Options
 
